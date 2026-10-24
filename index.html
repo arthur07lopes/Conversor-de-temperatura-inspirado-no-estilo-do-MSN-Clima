@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura | MSN Clima</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="conversortemp.js" defer></script>
+</head>
+<body>
+    <main class="weather-app">
+        <header class="weather-header">
+            <img id="msn-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/f/fd/MSN_Weather_icon.png"
+            alt="" width="44" height="44">
+            <div>
+                <p class="brand-name">MSN CLIMA</p>
+                <p class="brand-caption">PAINEL DE TEMPERATURA</p>
+            </div>
+        </header>
+
+        <section class="weather-banner" aria-labelledby="title">
+            <div>
+                <p class="overline">FERRAMENTA EDUCATIVA</p>
+                <h1 id="title">Conversor de Temperatura</h1>
+                <p class="description">Converta entre Celsius, Fahrenheit, e Kelvin.</p>
+            </div>
+            <div class="weather-symbol" aria-hidden="true">
+                <span class="sun"></span><span class="cloud"></span>
+            </div>
+        </section>
+
+        <form id="converter-form" class="converter-card">
+            <div class="field">
+                <label for="temperature">Temperatura</label>
+                <input id="temperature" name="temperature" type="number"
+                    step="any" inputmode="decimal" placeholder="Ex.: 23,5" required>
+            </div>
+
+            <div class="field">
+                <label for="from-unit">Converter de</label>
+                <select id="from-unit" name="from-unit">
+                    <option value="C">Celsius (°C)</option>
+                    <option value="F">Fahrenheit (°F)</option>
+                    <option value="K">Kelvin (K)</option>
+                </select>
+            </div>
+
+            <div class="swap-mark" aria-hidden="true">→</div>
+
+            <div class="field">
+                <label for="to-unit">Converter para</label>
+                <select id="to-unit" name="to-unit">
+                    <option value="F">Fahrenheit (°F)</option>
+                    <option value="C">Celsius (°C)</option>
+                    <option value="K">Kelvin (K)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="convert-button">Converter temperatura</button>
+            <p id="result" class="result" role="status" aria-live="polite">
+                Digite um valor e selecione as unidades.
+            </p>
+        </form>
+
+    <footer class="weather-footer">
+        <span>UNIDADES: °C / °F / K</span>
+        <span>CONVERSÃO LOCAL · SEM PREVISÃO AO VIVO</span>
+    </footer>
+</main>
+</body>
+</html>

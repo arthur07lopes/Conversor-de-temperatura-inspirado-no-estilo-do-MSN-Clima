@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+    --blue: #0879ca;
+    --deep-blue: #064c91;
+    --ink: #173450;
+    --muted: #58728a;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 26px 16px;
+    color: var(--ink);
+    font: 16px "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(145deg, #e4f4ff, #a9d5f3 52%, #d8efff);
+}
+
+.weather-app {
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+.weather-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0 20px;
+}
+
+.weather-header img {
+    flex: 0 0 44px;
+    object-fit: contain;
+}
+
+.brand-name {
+    margin: 0;
+    color: var(--deep-blue);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: .03em;
+}
+
+.brand-caption {
+    margin: 3px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+.weather-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 230px;
+    padding: clamp(24px, 5vw, 48px);
+    border-radius: 18px 18px 0 0;
+    color: #fff;
+    background: linear-gradient(115deg, #087acb, #07519b);
+    box-shadow: 0 12px 30px #236fa22b;
+}
+
+.overline {
+    margin: 0 0 12px;
+    color: #d7efff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+
+h1 {
+    max-width: 520px;
+    margin: 0;
+    font-size: clamp(26px, 4vw, 42px);
+    line-height: 1.12;
+}
+
+.description {
+    margin: 14px 0 0;
+    color: #e8f6ff;
+    font-size: 17px;
+}
+
+.weather-symbol {
+    position: relative;
+    flex: 0 0 130px;
+    height: 100px;
+}
+
+.sun {
+    position: absolute;
+    top: 4px;
+    right: 17px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: #ffd65a;
+    box-shadow: 0 0 0 12px #ffdd7040;
+}
+
+.cloud {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 110px;
+    height: 38px;
+    border-radius: 28px;
+    background: #f4fbff;
+    box-shadow: 0 5px 8px #063c6c33;
+}
+
+.cloud::before, .cloud::after {
+    content: "";
+    position: absolute;
+    bottom: 13px;
+    border-radius: 50%;
+    background: #f4fbff;
+}
+
+.cloud::before {
+    left: 15px;
+    width: 43px;
+    height: 43px;
+}
+
+.cloud::after {
+    left: 48px;
+    width: 52px;
+    height: 52px;
+}
+
+.converter-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 25px 1fr;
+    align-items: end;
+    gap: 14px;
+    padding: clamp(20px, 4vw, 36px);
+    background: #fff;
+    box-shadow: 0 12px 30px #236fa21c;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+}
+
+label {
+    color: #244863;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+input, select {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #9bbdd4;
+    border-radius: 7px;
+    color: #123d5f;
+    background: #f8fcff;
+    font: inherit;
+}
+
+.swap-mark {
+    align-self: center;
+    padding-top: 22px;
+    color: var(--blue);
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.convert-button {
+    grid-column: 1 / -1;
+    min-height: 48px;
+    border: 0;
+    border-radius: 7px;
+    color: #fff;
+    background: linear-gradient(90deg, #0781d5, #075ca9);
+    font: 700 15px "Segoe UI", Arial, sans-serif;
+    cursor: pointer;
+}
+
+.convert-button:hover {
+    background: linear-gradient(90deg, #006dbd, #064b8b);
+}
+
+.result {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 15px;
+    border-left: 4px solid var(--blue);
+    border-radius: 5px;
+    color: #123e5d;
+    background: #eaf6ff;
+    font-size: 17px;
+    font-weight: 650;
+}
+
+.weather-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 15px 3px;
+    color: #315b78;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+:focus-visible {
+    outline: 3px solid #ffae19;
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .converter-card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .swap-mark {
+        display: none;
+    }
+
+    .weather-symbol {
+        transform: scale(.8);
+        transform-origin: right center;
+    }
+
+    .weather-footer {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 14px 10px;
+    }
+
+    .weather-banner {
+        align-items: flex-start;
+        padding: 22px 18px;
+    }
+
+    .weather-symbol {
+        flex-basis: 76px;
+        transform: scale(.55);
+        margin-right: -15px;
+    }
+
+    .converter-card {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .convert-button, .result {
+        grid-column: 1;
+    }
+}
